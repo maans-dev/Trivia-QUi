@@ -1,2 +1,1 @@
-a Basic Quiz Game kudos to 
-weibenfalk 
+a Basic Quiz Game
