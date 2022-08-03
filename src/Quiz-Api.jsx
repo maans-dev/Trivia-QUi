@@ -3,16 +3,14 @@ import Game from "./game";
 import LoadingSpinner from "./loadingspinner"
 
 function QuizPage() {
-//could create seperate useState//grouped values.
-
   const [quizFetch, setQuizFetch] = useState({
     isLoading: true,
     errorMessage: '',
     data: null,
-  });
+    });
 
-useEffect(()=>{
-
+  useEffect(()=>{
+    try {
       const fetch = async() => {
       const url = ''
       const response = await fetch(url)
@@ -25,8 +23,23 @@ useEffect(()=>{
       } else if (response_code === 2) {
         throw new Error("Bad API Request")
       }
-    
+       
+      setQuizFetch({
+        isLoading: false,
+        errorMessage: "",
+        data: results,
+      });
+      } catch (err) {
+      setQuizFetch({
+      isLoading: false,
+      errorMessage: 'Try again, something went wrong',
+      data: results,
+    });
+   }
   }
+  getQuiz();
+}, []);
+
 
 const { isLoading, errorMessage, data } = quizFetch;
 let contents;
