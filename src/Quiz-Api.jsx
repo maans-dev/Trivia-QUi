@@ -11,8 +11,24 @@ function QuizPage() {
     data: null,
   });
 
-const { isLoading, errorMessage, data } = quizFetch;
+useEffect(()=>{
 
+      const fetch = async() => {
+      const url = ''
+      const response = await fetch(url)
+
+      const json = await response.json()
+      const { response_code, results } = json;
+
+      if ( response_code === 1 ) {
+        throw new Error('Bad Connection')
+      } else if (response_code === 2) {
+        throw new Error("Bad API Request")
+      }
+    
+  }
+
+const { isLoading, errorMessage, data } = quizFetch;
 let contents;
 if (isLoading) contents = <LoadingSpinner />;
 else if (errorMessage !== '') contents = <h1>error</h1>;
