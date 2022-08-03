@@ -10,6 +10,7 @@ function QuizPage() {
     });
 
   useEffect(()=>{
+    async function getQuiz() {
     try {
       const fetch = async() => {
       const url = ''
