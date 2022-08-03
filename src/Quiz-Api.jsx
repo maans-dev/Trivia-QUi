@@ -33,7 +33,7 @@ function QuizPage() {
       setQuizFetch({
       isLoading: false,
       errorMessage: 'Try again, something went wrong',
-      data: results,
+      data: null,
     });
    }
   }
